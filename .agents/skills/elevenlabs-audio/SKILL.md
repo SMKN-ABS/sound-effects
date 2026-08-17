@@ -49,19 +49,19 @@ A dog barking for 5 seconds.
 Run it from the repository root:
 
 ```bash
-node elevenlabs-audio/generate_audio.js
+node .agents/skills/elevenlabs-audio/generate_audio.js
 ```
 
 On success, it saves:
 
 ```text
-dog-barking.mp3
+generated/dog-barking.mp3
 ```
 
 ## Use as a JavaScript function
 
 ```javascript
-const { generateAudio } = require("./elevenlabs-audio/generate_audio");
+const { generateAudio } = require("./.agents/skills/elevenlabs-audio/generate_audio");
 
 const outputPath = await generateAudio(
   "A dog barking for 5 seconds.",
@@ -106,10 +106,14 @@ This is a simple audio-generation service: the JavaScript function sends the
 user’s audio prompt directly to ElevenLabs without adding queues, databases,
 agents, other providers, fallbacks, or other infrastructure.
 
+## Remediation plan
+
+See [`remediation-plan.md`](../../../remediation-plan.md) for the repository remediation plan.
+
 ## Run local tests
 
 The tests stub the HTTP request and do not require an API key or network access:
 
 ```bash
-node --test elevenlabs-audio/test_generate_audio.js
+node --test .agents/skills/elevenlabs-audio/test_generate_audio.js
 ```
